@@ -19,6 +19,7 @@
 		4BC0D32F197B764A00053F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC0D317197B764A00053F17 /* UIKit.framework */; };
 		4BC0D337197B764A00053F17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BC0D335197B764A00053F17 /* InfoPlist.strings */; };
 		4BC0D339197B764A00053F17 /* BlocBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC0D338197B764A00053F17 /* BlocBrowserTests.m */; };
+		4BC0D347197B770900053F17 /* BLCWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC0D346197B770900053F17 /* BLCWebBrowserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		4BC0D334197B764A00053F17 /* BlocBrowserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlocBrowserTests-Info.plist"; sourceTree = "<group>"; };
 		4BC0D336197B764A00053F17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4BC0D338197B764A00053F17 /* BlocBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocBrowserTests.m; sourceTree = "<group>"; };
+		4BC0D345197B770900053F17 /* BLCWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCWebBrowserViewController.h; sourceTree = "<group>"; };
+		4BC0D346197B770900053F17 /* BLCWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCWebBrowserViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				4BC0D323197B764A00053F17 /* BLCAppDelegate.m */,
 				4BC0D325197B764A00053F17 /* Images.xcassets */,
 				4BC0D31A197B764A00053F17 /* Supporting Files */,
+				4BC0D345197B770900053F17 /* BLCWebBrowserViewController.h */,
+				4BC0D346197B770900053F17 /* BLCWebBrowserViewController.m */,
 			);
 			path = BlocBrowser;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			files = (
 				4BC0D324197B764A00053F17 /* BLCAppDelegate.m in Sources */,
 				4BC0D320197B764A00053F17 /* main.m in Sources */,
+				4BC0D347197B770900053F17 /* BLCWebBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
