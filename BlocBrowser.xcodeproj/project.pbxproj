@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B8B7F47197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B7F46197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.m */; };
 		4BC0D314197B764A00053F17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC0D313197B764A00053F17 /* Foundation.framework */; };
 		4BC0D316197B764A00053F17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC0D315197B764A00053F17 /* CoreGraphics.framework */; };
 		4BC0D318197B764A00053F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC0D317197B764A00053F17 /* UIKit.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B8B7F45197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCAwesomeFloatingToolbar.h; sourceTree = "<group>"; };
+		4B8B7F46197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCAwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 		4BC0D310197B764A00053F17 /* BlocBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC0D313197B764A00053F17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BC0D315197B764A00053F17 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,6 +115,8 @@
 			children = (
 				4BC0D322197B764A00053F17 /* BLCAppDelegate.h */,
 				4BC0D323197B764A00053F17 /* BLCAppDelegate.m */,
+				4B8B7F45197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.h */,
+				4B8B7F46197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.m */,
 				4BC0D325197B764A00053F17 /* Images.xcassets */,
 				4BC0D31A197B764A00053F17 /* Supporting Files */,
 				4BC0D345197B770900053F17 /* BLCWebBrowserViewController.h */,
@@ -248,6 +253,7 @@
 				4BC0D324197B764A00053F17 /* BLCAppDelegate.m in Sources */,
 				4BC0D320197B764A00053F17 /* main.m in Sources */,
 				4BC0D347197B770900053F17 /* BLCWebBrowserViewController.m in Sources */,
+				4B8B7F47197DDCB0004208F6 /* BLCAwesomeFloatingToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +452,7 @@
 				4BC0D33E197B764A00053F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BC0D33F197B764A00053F17 /* Build configuration list for PBXNativeTarget "BlocBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +461,7 @@
 				4BC0D341197B764A00053F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
