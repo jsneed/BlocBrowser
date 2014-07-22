@@ -46,6 +46,18 @@
     self.awesomeToolbar = [[BLCAwesomeFloatingToolbar alloc] initWithFourTitles:@[kBLCWebBrowserBackString, kBLCWebBrowserForwardString, kBLCWebBrowserStopString, kBLCWebBrowserRefreshString]];
     self.awesomeToolbar.delegate = self;
     
+    for (UIButton *thisButton in self.awesomeToolbar.buttons) {
+        if ([thisButton.titleLabel.text isEqual:kBLCWebBrowserBackString]) {
+            [thisButton addTarget:self.webview action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+        } else if ([thisButton.titleLabel.text isEqual:kBLCWebBrowserForwardString]) {
+            [thisButton addTarget:self.webview action:@selector(goForward) forControlEvents:UIControlEventTouchUpInside];
+        } else if ([thisButton.titleLabel.text isEqual:kBLCWebBrowserStopString]) {
+            [thisButton addTarget:self.webview action:@selector(stopLoading) forControlEvents:UIControlEventTouchUpInside];
+        } else if ([thisButton.titleLabel.text isEqual:kBLCWebBrowserRefreshString]) {
+            [thisButton addTarget:self.webview action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+    
     for (UIView *viewToAdd in @[self.webview, self.textField, self.awesomeToolbar]) {
         [mainView addSubview:viewToAdd];
     }
@@ -60,10 +72,14 @@
     
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
+    
+    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
 }
 
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
+    NSLog(@"viewWillLayoutSubviews");
     
     // First, calculate some dimensions.
     static CGFloat itemHeight = 50;
@@ -73,8 +89,6 @@
     // Now, assign the frames
     self.textField.frame = CGRectMake(0, 0, width, itemHeight);
     self.webview.frame = CGRectMake(0, CGRectGetMaxY(self.textField.frame), width, browserHeight);
-    
-    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
 }
 
 #pragma mark - UITextFieldDelegate
@@ -183,6 +197,40 @@
     } else if ([title isEqual:kBLCWebBrowserRefreshString]) {
         [self.webview reload];
     }
+}
+
+- (void) floatingToolbar:(BLCAwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint)offset {
+    CGPoint startingPoint = toolbar.frame.origin;
+    CGPoint newPoint = CGPointMake(startingPoint.x + offset.x, startingPoint.y + offset.y);
+    
+    CGRect potentialNewFrame = CGRectMake(newPoint.x, newPoint.y, CGRectGetWidth(toolbar.frame), CGRectGetHeight(toolbar.frame));
+    
+    if (CGRectContainsRect(self.view.bounds, potentialNewFrame)) {
+        toolbar.frame = potentialNewFrame;
+    }
+}
+
+- (void) floatingToolbar:(BLCAwesomeFloatingToolbar *)toolbar didTryToScaleWithPercent:(CGFloat)percent {
+    NSLog(@"didTryToScaleWithPercent - Scale @%.1f", percent);
+    /*
+    CGRect oldFrame = toolbar.frame;
+    CGRect newFrame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, (int)roundf(oldFrame.size.width * percent), (int)roundf(oldFrame.size.height * percent));
+    
+    //if (CGRectContainsRect(self.view.bounds, newFrame)) {
+        self.awesomeToolbar.frame = newFrame;
+    //}
+     */
+    
+    /*
+    CGFloat viewCenterX = toolbar.frame.origin.x + toolbar.frame.size.width;
+    CGFloat viewCenterY = toolbar.frame.origin.y + toolbar.frame.size.height;
+    int newWidth = (int)roundf(oldFrame.size.width * percent);
+    int newHeight = (int)roundf(oldFrame.size.height * percent);
+    
+    CGRect newFrame = CGRectMake(viewCenterX - (newWidth/2), viewCenterY - (newHeight/2), newWidth, newHeight);
+    */
+    
+    toolbar.transform = CGAffineTransformMakeScale(percent, percent);
 }
 
 @end
